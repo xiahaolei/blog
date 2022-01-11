@@ -21,6 +21,19 @@
             <artifactId>blog-service</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
     </dependencies>
 
 
@@ -54,37 +67,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <profiles>
-        <profile>
-            <id>local</id>
-            <properties>
-                <activatedProperties>local</activatedProperties>
-            </properties>
-        </profile>
-        <profile>
-            <id>dev</id>
-            <properties>
-                <!-- 环境标识，需要与配置文件的名称相对应 -->
-                <activatedProperties>dev</activatedProperties>
-            </properties>
-            <activation>
-                <!-- 默认环境 -->
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <profile>
-            <id>test</id>
-            <properties>
-                <activatedProperties>test</activatedProperties>
-            </properties>
-        </profile>
-        <profile>
-            <id>prod</id>
-            <properties>
-                <activatedProperties>prod</activatedProperties>
-            </properties>
-        </profile>
-    </profiles>
-
 </project>
