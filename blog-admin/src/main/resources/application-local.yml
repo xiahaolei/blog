@@ -1,0 +1,15 @@
+#项目端口
+server:
+  port: 7777
+
+#应用名称
+spring:
+  application:
+    name: blog
+  profiles: local
+    # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/blog?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: root

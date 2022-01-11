@@ -1,0 +1,24 @@
+#应用名称
+spring:
+  application:
+    name: blog
+  profiles:
+    active: "@activatedProperties@"
+    # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/blog?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: root
+
+# mybatis配置
+mybatis:
+  type-aliases-package: com.xiahl.blog.domain
+  mapper-locations: classpath*:/mapper/*.xml
+  configuration:
+    # 驼峰映射默认关闭
+    map-underscore-to-camel-case: true
+    #Mybatis的sql日志打印, 测试的时候开启
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+

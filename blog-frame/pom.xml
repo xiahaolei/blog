@@ -9,18 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>blog-service</artifactId>
+    <artifactId>blog-frame</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>blog-mybatis</module>
+        <module>blog-config</module>
+    </modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-        </dependency>
-    </dependencies>
 
 </project>
