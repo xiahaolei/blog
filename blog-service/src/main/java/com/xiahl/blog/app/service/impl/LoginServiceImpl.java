@@ -1,5 +1,6 @@
 package com.xiahl.blog.app.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xiahl.blog.app.service.LoginService;
 import com.xiahl.blog.domain.User;
 import com.xiahl.blog.repository.login.LoginMapper;
@@ -14,7 +15,7 @@ import javax.annotation.Resource;
  * @Desc
  */
 @Service
-public class LoginServiceImpl implements LoginService {
+public class LoginServiceImpl extends ServiceImpl<LoginMapper, User> implements LoginService {
     @Resource
     private LoginMapper mapper;
 

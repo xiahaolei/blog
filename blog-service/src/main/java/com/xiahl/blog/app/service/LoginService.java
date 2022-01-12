@@ -1,5 +1,8 @@
 package com.xiahl.blog.app.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiahl.blog.domain.User;
+
 /**
  * @author 夏浩磊
  * @version 1.0
@@ -7,6 +10,6 @@ package com.xiahl.blog.app.service;
  * @Desc
  */
 
-public interface LoginService {
+public interface LoginService extends IService<User> {
    boolean login(String userName, String password);
 }
