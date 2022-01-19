@@ -1,4 +1,4 @@
-package com.xiahl.blog.filter;
+package com.xiahl.blog.security.filter;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;

@@ -2,8 +2,8 @@ package com.xiahl.blog.app.service.impl;
 
 import com.xiahl.blog.app.service.UserService;
 import com.xiahl.blog.domain.User;
-import com.xiahl.blog.filter.GrantedAuthorityImpl;
-import com.xiahl.blog.filter.JwtUserDetails;
+import com.xiahl.blog.security.filter.GrantedAuthorityImpl;
+import com.xiahl.blog.security.filter.JwtUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

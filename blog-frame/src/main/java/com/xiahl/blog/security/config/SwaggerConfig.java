@@ -1,4 +1,4 @@
-package com.xiahl.blog.config;
+package com.xiahl.blog.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

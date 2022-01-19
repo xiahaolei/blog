@@ -1,6 +1,6 @@
-package com.xiahl.blog.utils;
+package com.xiahl.blog.security.utils;
 
-import com.xiahl.blog.filter.JwtAuthenticatioToken;
+import com.xiahl.blog.security.filter.JwtAuthenticatioToken;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

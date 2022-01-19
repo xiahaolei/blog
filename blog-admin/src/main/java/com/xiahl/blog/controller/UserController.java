@@ -1,6 +1,6 @@
 package com.xiahl.blog.controller;
 
-import com.xiahl.blog.vo.HttpResult;
+import com.xiahl.blog.security.vo.HttpResult;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

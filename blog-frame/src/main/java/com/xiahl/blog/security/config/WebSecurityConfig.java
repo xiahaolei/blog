@@ -1,8 +1,8 @@
-package com.xiahl.blog.config;
+package com.xiahl.blog.security.config;
 
-import com.xiahl.blog.filter.JwtAuthenticationFilter;
-import com.xiahl.blog.filter.JwtAuthenticationProvider;
-import com.xiahl.blog.filter.JwtLoginFilter;
+import com.xiahl.blog.security.filter.JwtAuthenticationFilter;
+import com.xiahl.blog.security.filter.JwtAuthenticationProvider;
+import com.xiahl.blog.security.filter.JwtLoginFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

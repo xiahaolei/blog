@@ -1,4 +1,4 @@
-package com.xiahl.blog.utils;
+package com.xiahl.blog.security.utils;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,8 +8,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.xiahl.blog.filter.GrantedAuthorityImpl;
-import com.xiahl.blog.filter.JwtAuthenticatioToken;
+import com.xiahl.blog.security.filter.GrantedAuthorityImpl;
+import com.xiahl.blog.security.filter.JwtAuthenticatioToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 

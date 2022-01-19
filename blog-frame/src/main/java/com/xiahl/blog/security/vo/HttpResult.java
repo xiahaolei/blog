@@ -1,4 +1,4 @@
-package com.xiahl.blog.vo;
+package com.xiahl.blog.security.vo;
 
 /**
  * HTTP结果封装

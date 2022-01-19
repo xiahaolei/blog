@@ -1,6 +1,6 @@
-package com.xiahl.blog.filter;
+package com.xiahl.blog.security.filter;
 
-import com.xiahl.blog.utils.SecurityUtils;
+import com.xiahl.blog.security.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
