@@ -3,6 +3,8 @@
 <mapper namespace="com.xiahl.blog.repository.login.LoginMapper">
 
     <select id="login" resultType="com.xiahl.blog.domain.User">
-        select * from user where user_name=#{userName} and password=#{password};
+        select *
+        from user
+        where user_name = #{userName} and password  =  #{password};
     </select>
 </mapper>

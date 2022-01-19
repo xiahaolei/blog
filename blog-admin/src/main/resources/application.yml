@@ -11,16 +11,6 @@ spring:
     username: root
     password: root
 
-# mybatis配置
-mybatis:
-  type-aliases-package: com.xiahl.blog.domain
-  mapper-locations: classpath*:/mapper/*.xml
-  configuration:
-    # 驼峰映射默认关闭
-    map-underscore-to-camel-case: true
-    #Mybatis的sql日志打印, 测试的时候开启
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
 knife4j:
   # 开启接口文档增强 []
   enable: true
@@ -31,5 +21,41 @@ knife4j:
 #    username: test
 #    password: 123456
 #    enable: true
+
+#mybatis配置
+mybatis-plus:
+  executor-type: reuse
+  configuration:
+    cache-enabled: false
+    aggressive-lazy-loading: true
+    jdbc-type-for-null: 'null'
+  type-aliases-package: com.xiahl.blog.domain
+  mapper-locations: classpath*:/mapper/*.xml
+  global-config:
+    banner: false
+    db-config:
+      id-type: assign_id
+      insert-strategy: not_null
+      update-strategy: not_null
+      select-strategy: not_null
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  check-config-location: true
+
+pagehelper:
+  supportMethodsArguments: true
+  reasonable: false
+  params: count=countSql
+
+
+# mybatis配置
+#mybatis:
+#  type-aliases-package: com.xiahl.blog.domain
+#  mapper-locations: classpath*:/mapper/*.xml
+#  configuration:
+#    # 驼峰映射默认关闭
+#    map-underscore-to-camel-case: true
+#    #Mybatis的sql日志打印, 测试的时候开启
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 

@@ -1,41 +1,41 @@
 package com.xiahl.blog.controller;
 
-import com.xiahl.blog.app.service.LoginService;
-import com.xiahl.blog.domain.User;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.xiahl.blog.filter.JwtAuthenticatioToken;
+import com.xiahl.blog.utils.SecurityUtils;
+import com.xiahl.blog.vo.HttpResult;
+import com.xiahl.blog.vo.LoginBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
 /**
- * @author 夏浩磊
- * @version 1.0
- * @date 2022/1/11 16:33
- * @Desc
+ * 登录控制器
+ * @author Louis
+ * @date Jun 29, 2019
  */
-
 @RestController
-@RequestMapping("/login")
-@ComponentScan(basePackages = "com.xiahl.blog")
 public class LoginController {
 
-    @Resource
-    private LoginService loginService;
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
-    @GetMapping("/login")
-    public String test() {
-        boolean flag = loginService.login("夏浩磊", "123456");
-        List<User> list = loginService.list();
-        System.out.println(list);
-        if (flag == true) {
-            return "登录成功";
-        } else {
-            return "登录失败";
-        }
+    /**
+     * 登录接口
+     */
+    @PostMapping(value = "/login")
+    public HttpResult login(@RequestBody LoginBean loginBean, HttpServletRequest request) throws IOException {
+        String username = loginBean.getUsername();
+        String password = loginBean.getPassword();
+        
+        // 系统登录认证
+        JwtAuthenticatioToken token = SecurityUtils.login(request, username, password, authenticationManager);
+                
+        return HttpResult.ok(token);
     }
 
 }

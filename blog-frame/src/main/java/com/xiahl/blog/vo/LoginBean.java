@@ -1,40 +1,26 @@
-package com.xiahl.blog.domain;
+package com.xiahl.blog.vo;
 
 /**
- * 用户模型
+ * 登录接口封装对象
  * @author Louis
  * @date Jun 29, 2019
  */
-public class User {
+public class LoginBean {
 
-    private Long id;
-    
-    private String username;
-
-    private String password;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
+	private String username;
+	private String password;
+	
 	public String getUsername() {
 		return username;
 	}
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
 }
