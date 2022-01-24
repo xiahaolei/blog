@@ -1,7 +1,7 @@
 package com.xiahl.blog.repository.login;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.xiahl.blog.domain.User;
+import com.xiahl.blog.domain.SysUser;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -11,8 +11,8 @@ import org.apache.ibatis.annotations.Param;
  * @date 2022/1/11 16:49
  * @Desc
  */
-public interface LoginMapper extends BaseMapper<User> {
+public interface UserMapper extends BaseMapper<SysUser> {
 
-    User login(@Param("userName") String userName,
+    SysUser login(@Param("userName") String userName,
                @Param("password") String password);
 }

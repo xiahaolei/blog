@@ -2,7 +2,6 @@ package com.xiahl.blog.security.config;
 
 import com.xiahl.blog.security.filter.JwtAuthenticationFilter;
 import com.xiahl.blog.security.filter.JwtAuthenticationProvider;
-import com.xiahl.blog.security.filter.JwtLoginFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -50,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // 退出登录处理器
         http.logout().logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler());
         // 开启登录认证流程过滤器
-        http.addFilterBefore(new JwtLoginFilter(authenticationManager()), UsernamePasswordAuthenticationFilter.class);
+//        http.addFilterBefore(new JwtLoginFilter(authenticationManager()), UsernamePasswordAuthenticationFilter.class);
         // 访问控制时登录状态检查过滤器
         http.addFilterBefore(new JwtAuthenticationFilter(authenticationManager()), UsernamePasswordAuthenticationFilter.class);
     }

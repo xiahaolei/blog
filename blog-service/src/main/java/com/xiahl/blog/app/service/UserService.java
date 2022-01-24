@@ -1,6 +1,7 @@
 package com.xiahl.blog.app.service;
 
-import com.xiahl.blog.domain.User;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiahl.blog.domain.SysUser;
 
 import java.util.Set;
 
@@ -9,14 +10,14 @@ import java.util.Set;
  * @author Louis
  * @date Jun 29, 2019
  */
-public interface UserService {
+public interface UserService extends IService<SysUser> {
 
 	/**
 	 * 根据用户名查找用户
 	 * @param username
 	 * @return
 	 */
-	User findByUsername(String username);
+	SysUser findByUsername(String username);
 
 	/**
 	 * 查找用户的菜单权限标识集合

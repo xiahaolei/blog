@@ -1,7 +1,9 @@
 package com.xiahl.blog.app.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xiahl.blog.app.service.UserService;
-import com.xiahl.blog.domain.User;
+import com.xiahl.blog.domain.SysUser;
+import com.xiahl.blog.repository.login.UserMapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -9,11 +11,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-public class SysUserServiceImpl implements UserService {
+public class SysUserServiceImpl  extends ServiceImpl<UserMapper, SysUser> implements UserService {
 
 	@Override
-	public User findByUsername(String username) {
-		User user = new User();
+	public SysUser findByUsername(String username) {
+		SysUser user = new SysUser();
 		user.setId(1L);
 		user.setUsername(username);
 		String password = new BCryptPasswordEncoder().encode("123");
@@ -30,5 +32,4 @@ public class SysUserServiceImpl implements UserService {
 		permissions.add("sys:user:delete");
 		return permissions;
 	}
-
 }

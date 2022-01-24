@@ -13,6 +13,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.xiahl</groupId>
+            <artifactId>blog-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
@@ -29,7 +34,7 @@
 
         <dependency>
             <groupId>com.xiahl</groupId>
-            <artifactId>blog-frame</artifactId>
+            <artifactId>blog-oauth</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

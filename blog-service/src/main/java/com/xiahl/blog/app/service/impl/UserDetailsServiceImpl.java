@@ -1,7 +1,7 @@
 package com.xiahl.blog.app.service.impl;
 
 import com.xiahl.blog.app.service.UserService;
-import com.xiahl.blog.domain.User;
+import com.xiahl.blog.domain.SysUser;
 import com.xiahl.blog.security.filter.GrantedAuthorityImpl;
 import com.xiahl.blog.security.filter.JwtUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userService.findByUsername(username);
+        SysUser user = userService.findByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException("该用户不存在");
         }
