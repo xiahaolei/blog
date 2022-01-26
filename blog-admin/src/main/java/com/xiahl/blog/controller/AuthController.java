@@ -21,8 +21,8 @@ import java.util.Objects;
 /**
  * 登录控制器
  *
- * @author Louis
- * @date Jun 29, 2019
+ * @author xiahl
+ * @date 1月29, 2022
  */
 @RestController
 public class AuthController {
