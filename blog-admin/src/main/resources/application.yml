@@ -7,7 +7,7 @@ spring:
     # 数据源配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/blog?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://124.222.61.242:3306/blog?useUnicode=true&characterEncoding=utf8
     username: root
     password: root
 
@@ -29,6 +29,7 @@ mybatis-plus:
     cache-enabled: false
     aggressive-lazy-loading: true
     jdbc-type-for-null: 'null'
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   type-aliases-package: com.xiahl.blog.domain
   mapper-locations: classpath*:/mapper/*.xml
   global-config:
