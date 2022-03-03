@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * @URL: https://onestar.newstar.net.cn/
  */
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class NotFoundException extends RuntimeException{
-    public NotFoundException() {
+public class MyNotFoundException extends RuntimeException{
+    public MyNotFoundException() {
     }
 
-    public NotFoundException(String message) {
+    public MyNotFoundException(String message) {
         super(message);
     }
 
-    public NotFoundException(String message, Throwable cause) {
+    public MyNotFoundException(String message, Throwable cause) {
         super(message, cause);
     }
 }
