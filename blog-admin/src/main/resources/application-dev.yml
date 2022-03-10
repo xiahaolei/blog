@@ -67,6 +67,6 @@ logging:
     root: info
     com.xiahl: info
   file:
-    path: log/blog.log
+    path: log
 server:
   port: 8888
