@@ -15,12 +15,12 @@
   
     <!--导航 -->
     <!-- inverted 黑化 segment 片段 -->
-    <nav class="ui inverted  attached  segment m-padded-tb-mini">
+    <nav th:replace="_fragments :: menu(1)" class="ui inverted  attached  segment m-padded-tb-mini">
         <div class="ui container">
             <!-- stackable代表可堆叠的. 移动端会堆叠 -->
             <div class="ui  inverted secondary stackable menu">
                 <h2 class="ui  teal header item ">Blog</h2>
-                <a href="#" class="m-item item m-mobile-hide active"><i class="home icon"></i>首页</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
                 <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
                 <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
                 <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>归档</a>
