@@ -2,7 +2,7 @@ package com.xiahl.blog.controller;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.xiahl.blog.app.service.UserService;
-import com.xiahl.blog.domain.SysUser;
+import com.xiahl.blog.entity.User;
 import com.xiahl.blog.security.filter.JwtAuthenticatioToken;
 import com.xiahl.blog.security.utils.SecurityUtils;
 import com.xiahl.blog.security.vo.HttpResult;
@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-import java.sql.Wrapper;
 import java.util.Objects;
 
 /**
@@ -38,7 +36,7 @@ public class AuthController {
     public HttpResult login(@RequestBody LoginRequest loginRequest, HttpServletRequest request) throws Exception {
         String username = loginRequest.getUsername();
         String password = loginRequest.getPassword();
-        SysUser user = userService.getOne(Wrappers.<SysUser>lambdaQuery().eq(SysUser::getUsername, username));
+        User user = userService.getOne(Wrappers.<User>lambdaQuery().eq(User::getUsername, username));
         if (Objects.isNull(user)){
             throw new Exception("用户名不存在");
         }

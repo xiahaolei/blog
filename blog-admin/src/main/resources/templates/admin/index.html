@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<head>
+<head th:replace="admin/_fragments :: head(~{::title})">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>博客管理</title>
-
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" href="../../static/css/me.css">
 </head>
@@ -16,12 +14,12 @@
 
     <!--导航 -->
     <!-- inverted 黑化 segment 片段 -->
-    <nav class="ui inverted  attached  segment m-padded-tb-mini m-shadow-small">
+    <nav th:replace="admin/_fragments :: menu(0)" class="ui inverted  attached  segment m-padded-tb-mini m-shadow-small">
         <div class="ui container">
             <!-- stackable代表可堆叠的. 移动端会堆叠 -->
             <div class="ui  inverted secondary stackable menu">
                 <h2 class="ui  teal header item ">管理后台</h2>
-                <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>博客</a>
                 <a href="#" class="active m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
                 <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
                 <div class="right m-item menu">
@@ -32,7 +30,7 @@
                         </div>
                         <i class="dropdown icon"></i>
                         <div class="menu">
-                            <a href="#" class="item">注销</a>
+                            <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
                         </div>
                     </div>
                 </div>
@@ -51,92 +49,24 @@
                 <a href="#" class="active teal item">列表</a>
             </div>
         </div>
-
-
     </div>
 
     <!-- 中间内容部分 -->
     <div class="m-container-small m-padded-tb-big">
         <div class="ui container">
-            <form action="#" method="post" class="ui segment form">
-                <div class=" inline fields">
-                    <div class="field">
-                        <input type="text" name="title" placeholder="标题">
-
-                    </div>
-
-                    <div class="field">
-                        <div class="ui selection dropdown">
-                            <input type="hidden" name="type">
-                            <i class="dropdown icon"></i>
-                            <div class="default text">分类</div>
-                            <div class="menu">
-                                <div class="item" data-value="1">错误日志</div>
-                                <div class="item" data-value="2">开发者手册</div>
-                                <div class="item" data-value="1">测试</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" id="recommend" name="recommend">
-                            <label for="recommend">推荐</label>
-                        </div>
-                    </div>
-
-
-                    <div class="field">
-                        <button class="ui teal basic button"><i class="search icon"></i>搜索</button>
-                    </div>
-                </div>
-            </form>
-            <table class="ui  celled table">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>标题</th>
-                        <th>类型</th>
-                        <th>推荐</th>
-                        <th>更新时间</th>
-                        <th>操作</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>可以联系清单</td>
-                        <td>认知升级</td>
-                        <td>是</td>
-                        <td>2022年2月28日22:25:53</td>
-                        <td>
-                            <a href="#" class="ui mini teal basic button">编辑</a>
-                            <a href="#" class="ui mini red basic button">删除</a>
-                        </td>
-                    </tr>
-                </tbody>
-
-                <tfoot>
-                    <tr>
-                        <th colspan="6">
-                            <div class="ui mini pagination menu">
-                                <a class="item">上一页</a>
-                                <a class="item">下一页</a>
-                            </div>
-                            <a href="#" class="ui mini right floated teal basic button">新增</a>
-                        </th>
-                    </tr>
-                </tfoot>
-            </table>
+            <div class="ui success large message">
+                <h2>Hi,</h2>
+                <p>主人,欢迎登录! </p>
+            </div>
+            <img src="https://picsum.photos/id/1005/1000/1400" alt="" class="ui rounded bodered fluid image">
         </div>
-
     </div>
 
 
 
     <!-- footer底部 -->
     <!-- vertical 垂直,不是圆角 -->
-    <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+    <footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
         <div class="ui center aligned container">
             <div class="ui inverted divided stackable grid">
                 <div class="three wide column">

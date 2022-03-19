@@ -2,6 +2,7 @@ package com.xiahl.blog.app.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xiahl.blog.domain.SysUser;
+import com.xiahl.blog.entity.User;
 
 import java.util.Set;
 
@@ -10,8 +11,7 @@ import java.util.Set;
  * @author Louis
  * @date Jun 29, 2019
  */
-public interface UserService extends IService<SysUser> {
-
+public interface UserService extends IService<User> {
 	/**
 	 * 根据用户名查找用户
 	 * @param username
@@ -26,4 +26,5 @@ public interface UserService extends IService<SysUser> {
 	 */
 	Set<String> findPermissions(String username);
 
+	public User checkUser(String username ,String password);
 }
