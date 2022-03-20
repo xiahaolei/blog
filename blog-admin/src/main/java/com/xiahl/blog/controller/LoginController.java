@@ -2,6 +2,7 @@ package com.xiahl.blog.controller;
 
 import com.xiahl.blog.app.service.UserService;
 import com.xiahl.blog.entity.User;
+import com.xiahl.blog.utils.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,7 +34,7 @@ public class LoginController {
 
     @PostMapping("/login")
     public String  login(@RequestParam String username , @RequestParam String password, HttpSession session, RedirectAttributes attributes){
-        User user = userService.checkUser(username, password);
+        User user = userService.checkUser(username, MD5Utils.code(password));
         if (user!=null){
             user.setPassword(null);
             session.setAttribute("user",user);
