@@ -4,9 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.NotBlank;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @Description: 分类实体类
@@ -22,5 +21,6 @@ import java.util.List;
 public class Type {
 
     private Long id;
+    @NotBlank(message = "分类名称不能为空")
     private String name;
 }

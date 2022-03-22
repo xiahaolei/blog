@@ -11,11 +11,15 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -42,18 +46,22 @@ public class TypeController {
     }
 
     @GetMapping("/types/input")
-    public String input() {
+    public String input(Model model) {
+        model.addAttribute("type",new Type());
         return "admin/types-input";
     }
 
 
     @PostMapping("types")
-    public String post(Type type) {
+    public String post(@Validated Type type, BindingResult result , RedirectAttributes attributes) {
+        if (result.hasErrors()){
+            return "admin/types-input";
+        }
         boolean flag = typeService.save(type);
         if (flag==false){
-//            return "保存失败";
-        }else {
-//            return "保存成功";
+            attributes.addFlashAttribute("message", "新增失败");
+        } else {
+            attributes.addFlashAttribute("message", "新增成功");
         }
         return "redirect:/admin/types";
     }
