@@ -23,6 +23,7 @@ mybatis-plus:
     cache-enabled: false
     aggressive-lazy-loading: true
     jdbc-type-for-null: 'null'
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   type-aliases-package: com.xiahl.blog.domain
   mapper-locations: classpath*:/mapper/*.xml
   global-config:

@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * @author 夏浩磊
  * @version 1.0
  * @date 2022/3/20 15:15
- * @Desc
+ * @Desc  过滤所有的请求,但是排除admin 和admin/login
  */
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
