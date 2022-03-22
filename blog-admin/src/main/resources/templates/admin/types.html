@@ -84,7 +84,7 @@
                         <a class="item" th:href="@{/admin/types(pageNum=${pageInfo.getPageNum()-1})}"
                            th:unless="${pageInfo.isFirstPage}">上一页</a>
                         <a class="item" th:href="@{/admin/types(pageNum=${pageInfo.getPageNum()+1})}"
-                           th:unless="${pageInfo.isLastPage}">上一页</a>
+                           th:unless="${pageInfo.isLastPage}">下一页</a>
                     </div>
                     <a href="#" th:href="@{/admin/types/input}" class="ui teal floated right button m-mobile-wide m-margin-top">新增</a>
                 </th>

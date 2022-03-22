@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -31,10 +32,10 @@ public class TypeController {
     private TypeService typeService;
 
     @GetMapping("/types")
-    public String types(@PageableDefault(size = 10, sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable, Model model) {
+    public String types(@RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum, Model model) {
         String orderBy = "id desc";
-        PageHelper.startPage(pageable.getPageNumber(), 3, orderBy);
-        List<Type> list = typeService.list(Wrappers.<Type>lambdaQuery().);
+        PageHelper.startPage(pageNum, 3);
+        List<Type> list = typeService.list();
         PageInfo<Type> pageInfo = new PageInfo<Type>(list);
         model.addAttribute("pageInfo", pageInfo);
         return "admin/types";
