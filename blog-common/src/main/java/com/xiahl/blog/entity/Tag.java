@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.NotBlank;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,5 +22,6 @@ import java.util.List;
 public class Tag {
 
     private Long id;
+    @NotBlank(message = "分类名称不能为空")
     private String name;
 }
