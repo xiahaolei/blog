@@ -11,10 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -43,6 +40,13 @@ public class TagsController {
     }
 
 
+    @GetMapping("tags/{id}/input")
+    public String editInput(@PathVariable Long id, Model model) {
+        model.addAttribute("tag", tagService.getById(id));
+        return "admin/tags-input";
+    }
+
+
     @PostMapping("/tags")
     public String post(@Validated Tag tag, BindingResult result, RedirectAttributes attributes) {
         if (tag.getName() != null) {
@@ -62,4 +66,33 @@ public class TagsController {
         }
         return "redirect:/admin/tags";
     }
+
+    @PostMapping("/tags/{id}")
+    public String editPost(@Validated Tag tag, BindingResult result, @PathVariable Long id, RedirectAttributes attributes) {
+        if (tag.getName() != null) {
+            Tag tagOne = tagService.getOne(Wrappers.<Tag>lambdaQuery().eq(Tag::getName, tag.getName()));
+            if (tagOne != null) {
+                result.rejectValue("name", "name:Error", "分类名称不能重复修改");
+            }
+        }
+        if (result.hasErrors()) {
+            return "admin/tags-input";
+        }
+        Boolean flag =  tagService.update(tag,Wrappers.<Tag>lambdaQuery().eq(Tag::getId,id));
+        if (flag == false) {
+            attributes.addFlashAttribute("message", "编辑失败");
+        } else {
+            attributes.addFlashAttribute("message", "编辑成功");
+        }
+        return "redirect:/admin/tags";
+    }
+
+
+    @GetMapping("/tags/{id}/delete")
+    public String delete(@PathVariable  Long id ,RedirectAttributes attributes){
+        tagService.removeById(id);
+        attributes.addFlashAttribute("message", "删除成功");
+        return "redirect:/admin/tags";
+    }
+
 }
