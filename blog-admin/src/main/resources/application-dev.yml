@@ -29,7 +29,7 @@ mybatis-plus:
   global-config:
     banner: false
     db-config:
-      id-type: assign_id
+      id-type: AUTO
       insert-strategy: not_null
       update-strategy: not_null
       select-strategy: not_null

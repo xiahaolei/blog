@@ -1,4 +1,4 @@
-package com.xiahl.blog.controller;
+package com.xiahl.blog.controller.admin;
 
 import com.xiahl.blog.app.service.UserService;
 import com.xiahl.blog.entity.User;

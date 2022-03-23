@@ -1,4 +1,4 @@
-package com.xiahl.blog.controller;
+package com.xiahl.blog.controller.admin;
 
 import com.xiahl.blog.Exception.MyNotFoundException;
 import org.springframework.stereotype.Controller;

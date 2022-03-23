@@ -1,4 +1,4 @@
-package com.xiahl.blog.controller;
+package com.xiahl.blog.controller.admin;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.github.pagehelper.PageHelper;
