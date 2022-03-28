@@ -28,6 +28,7 @@ public class TagsController {
     private TagService tagService;
 
     @GetMapping("/tags")
+    @ApiOperation(value = "分页请求页面")
     public String types(@RequestParam(defaultValue = "1", value = "pageNum") Integer pageNum, Model model) {
         String orderBy = "id desc";
         PageHelper.startPage(pageNum, 3);
@@ -38,6 +39,7 @@ public class TagsController {
     }
 
     @GetMapping("/tags/input")
+    @ApiOperation(value = "点击新增跳转页面")
     public String input(Model model) {
         model.addAttribute("tag", new Tag());
         return "admin/tags-input";
@@ -45,6 +47,7 @@ public class TagsController {
 
 
     @GetMapping("tags/{id}/input")
+    @ApiOperation(value = "编辑页面回显")
     public String editInput(@PathVariable Long id, Model model) {
         model.addAttribute("tag", tagService.getById(id));
         return "admin/tags-input";
@@ -95,6 +98,7 @@ public class TagsController {
 
 
     @GetMapping("/tags/{id}/delete")
+    @ApiOperation("删除页面")
     public String delete(@PathVariable  Long id ,RedirectAttributes attributes){
         tagService.removeById(id);
         attributes.addFlashAttribute("message", "删除成功");
