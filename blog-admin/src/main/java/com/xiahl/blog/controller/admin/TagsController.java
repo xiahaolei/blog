@@ -6,6 +6,9 @@ import com.github.pagehelper.PageInfo;
 import com.xiahl.blog.app.service.TagService;
 import com.xiahl.blog.entity.Tag;
 import com.xiahl.blog.entity.Type;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +21,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
+@Api(value = "标签接口",tags = "标签接口")
 public class TagsController {
 
     @Autowired
@@ -48,6 +52,7 @@ public class TagsController {
 
 
     @PostMapping("/tags")
+    @ApiOperation(value = "新增")
     public String post(@Validated Tag tag, BindingResult result, RedirectAttributes attributes) {
         if (tag.getName() != null) {
             Tag tagOne = tagService.getOne(Wrappers.<Tag>lambdaQuery().eq(Tag::getName, tag.getName()));
@@ -68,6 +73,7 @@ public class TagsController {
     }
 
     @PostMapping("/tags/{id}")
+    @ApiOperation(value = "编辑")
     public String editPost(@Validated Tag tag, BindingResult result, @PathVariable Long id, RedirectAttributes attributes) {
         if (tag.getName() != null) {
             Tag tagOne = tagService.getOne(Wrappers.<Tag>lambdaQuery().eq(Tag::getName, tag.getName()));
