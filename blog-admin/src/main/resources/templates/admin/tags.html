@@ -75,7 +75,7 @@
                 <td>
                     <a href="#" th:href="@{/admin/tags/{id}/input(id=${tag.id})}"
                        class="ui mini teal basic button">编辑</a>
-                    <a href="#" th:href="@{/admin/tags/{id}/delete(id=${tag.id})}"
+                    <a href="#" th:href="@{/admin/tags/{id}/delete(id=${tag.id})}" onclick="return confirm('确定要删除吗？')"
                        class="ui mini red basic button">删除</a>
                 </td>
             </tr>
