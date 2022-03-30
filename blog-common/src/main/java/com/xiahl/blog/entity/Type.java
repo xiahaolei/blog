@@ -2,6 +2,7 @@ package com.xiahl.blog.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,6 +21,7 @@ import org.hibernate.validator.constraints.NotBlank;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@TableName("t_type")
 public class Type {
 
     private Long id;

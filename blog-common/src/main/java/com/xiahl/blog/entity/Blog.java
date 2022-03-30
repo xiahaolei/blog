@@ -1,5 +1,6 @@
 package com.xiahl.blog.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,6 +22,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@TableName("t_blog")
 public class Blog {
 
     @ApiModelProperty(value = "主键id")
