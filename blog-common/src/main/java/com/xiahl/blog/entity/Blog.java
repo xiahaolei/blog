@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Transient;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -66,17 +67,20 @@ public class Blog {
     @ApiModelProperty(value = "更新时间")
     private Date updateTime;
 
+    @Transient
     private Long typeId;
+    @Transient
     private Long userId;
+    @Transient
     private String description;
 
-
+    @Transient
     private Type type;
-
+    @Transient
     private User user;
-
+    @Transient
     private List<Tag> tags = new ArrayList<>();
-
+    @Transient
     private List<Comment> comments = new ArrayList<>();
 
 
