@@ -5,14 +5,18 @@ import com.github.pagehelper.PageInfo;
 import com.xiahl.blog.app.service.BlogService;
 import com.xiahl.blog.app.service.TypeService;
 import com.xiahl.blog.entity.Blog;
+import com.xiahl.blog.entity.User;
 import com.xiahl.blog.queryvo.BlogQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -48,5 +52,25 @@ public class BlogController {
         model.addAttribute("types",typeService.list());
         model.addAttribute("blog", new Blog());
         return "admin/blogs-input";
+    }
+
+    //    博客新增
+    @PostMapping("/blogs")
+    public String post(Blog blog, RedirectAttributes attributes, HttpSession session){
+        blog.setUser((User) session.getAttribute("user"));
+        //设置blog的type
+        blog.setType(typeService.getType(blog.getType().getId()));
+        //设置blog中typeId属性
+        blog.setTypeId(blog.getType().getId());
+        //设置用户id
+        blog.setUserId(blog.getUser().getId());
+        boolean b = blogService.save(blog);
+
+        if(b == false){
+            attributes.addFlashAttribute("message", "新增失败");
+        }else {
+            attributes.addFlashAttribute("message", "新增成功");
+        }
+        return "redirect:/admin/blogs";
     }
 }
