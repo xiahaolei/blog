@@ -3,6 +3,7 @@ package com.xiahl.blog.controller.admin;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xiahl.blog.app.service.BlogService;
+import com.xiahl.blog.app.service.TypeService;
 import com.xiahl.blog.entity.Blog;
 import com.xiahl.blog.queryvo.BlogQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ import java.util.List;
 public class BlogController {
     @Autowired
     private BlogService blogService;
+    @Autowired
+    private TypeService typeService;
 
     @GetMapping("/blogs")
     public String blogs(Model model, @RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum) {
@@ -34,9 +37,16 @@ public class BlogController {
         PageHelper.startPage(pageNum,3,orderBy);
         List<BlogQuery> list = blogService.getAllBlog();
         PageInfo<BlogQuery> pageInfo = new PageInfo<BlogQuery>(list);
-        model.addAttribute("types",typeService.getAllType());
+        model.addAttribute("types",typeService.list());
         model.addAttribute("pageInfo",pageInfo);
-        return "admin/blogs";
-        return "admin/blogs";
+            return "admin/blogs";
+    }
+
+    //跳转博客新增页面
+    @GetMapping("/blogs/input")
+    public String input(Model model) {
+        model.addAttribute("types",typeService.list());
+        model.addAttribute("blog", new Blog());
+        return "admin/blogs-input";
     }
 }
